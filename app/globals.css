@@ -37,8 +37,27 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #171717;
+  border-bottom:2px solid #e49400;
+}
+.logo{
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links{
+  color: white;
   text-decoration: none;
 }
 

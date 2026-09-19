@@ -1,13 +1,13 @@
 import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import ProductGrid from "../components/ProductGrid" ;
 
 export default function Home(){
   return (
     <>
     <Navbar />
-  <main>
-    <h1>Welcome to ShopEase</h1>
-    <p>Your modern online. </p>
-    </main>
+    <Hero />
+    <ProductGrid />
     </>
     );
 }

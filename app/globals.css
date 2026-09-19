@@ -1,6 +1,10 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #252525;
+  --primary-color-1:  #e49400;
+  --primary-color-2: white;
+  --primary-color-3: #0a0a0a;
+  --box-shadow: rgba(112, 109, 109, 0.603);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,11 +46,19 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background-color: #171717;
-  border-bottom:2px solid #e49400;
+  background-color: var(--primary-color-3);
+  border-bottom:2px solid var(--primary-color-1);
+}
+.Navbar a{
+  text-decoration: none;
+  color: var(--primary-color-2);
+  padding:8px;
+}
+.Navbar a:hover{
+  color: var(--primary-color-1);
 }
 .logo{
-  color: white;
+  color: var(--primary-color-2);
   font-size: 24px;
   font-weight: bold;
 }
@@ -59,6 +71,112 @@ body {
 .nav-links{
   color: white;
   text-decoration: none;
+}
+
+.hero{
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1{
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero button {
+  padding: 14px 30px;
+  border-radius: 10px;
+  background:var(--primary-color-3);
+  border: 2px solid  var(--primary-color-1);
+  color: var(--primary-color-2);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hero button:hover {
+  box-shadow: 0 8px 20px var(--box-shadow);
+  transform:translateY(-3px) ;
+  background:var(--primary-color-1);
+  border:none;
+  
+}
+
+.products-section{
+  padding: 80px 60px;
+}
+.section-heading{
+  text-align: center ;
+  margin-bottom:40px;
+}
+.section-heading h2{
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.section-heading p{
+  color: #666;
+}
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.product-card{
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.product-info {
+  padding: 20px;
+}
+.product-category {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.product-info h3{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-info button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+}
+.product-info button:hover{
+  opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {

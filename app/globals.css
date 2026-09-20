@@ -1,3 +1,10 @@
+
+/* ================================================================================================================================ */
+
+/* ================================================================== Color Declaration ================================================ */
+
+/* =============================================================================================================================== */
+
 :root {
   --background: #ffffff;
   --foreground: #252525;
@@ -5,6 +12,8 @@
   --primary-color-2: white;
   --primary-color-3: #0a0a0a;
   --box-shadow: rgba(112, 109, 109, 0.603);
+  --hover-glow: #fdaf1d;
+  --text-shadow:rgba(255, 255, 255, 0.802);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,48 +50,80 @@ body {
   margin: 0;
 }
 
+/* ================================================================================================================================ */
+
+/* ================================================================== Navabr ================================================ */
+
+/* =============================================================================================================================== */
+
 .Navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width:100%;
   padding: 20px 60px;
   background-color: var(--primary-color-3);
   border-bottom:2px solid var(--primary-color-1);
+
+  /* making the navbar sticky */
+  position:fixed;
+  top: 0;
+  z-index: 1000;
 }
 .Navbar a{
   text-decoration: none;
   color: var(--primary-color-2);
   padding:8px;
 }
-.Navbar a:hover{
-  color: var(--primary-color-1);
-}
+
+
+
 .logo{
   color: var(--primary-color-2);
   font-size: 24px;
   font-weight: bold;
 }
+.logo a:hover{
+  color: var(--hover-glow);
+  text-shadow: 0 8px 20px var(--text-shadow) ;
+  transition:0.5s ease;
+}
 
 .nav-links{
   display:flex;
+  align-items: center;
   gap:30px;
 }
 
-.nav-links{
-  color: white;
+.nav-links a{
+  color: var(--primary-color-2);
   text-decoration: none;
+  transition:0.5s ease;
+}
+.nav-links a:hover{
+  color: var(--hover-glow);
+  text-shadow: 0 8px 20px var(--text-shadow) ;
+   transition:0.5 ease;
 }
 
+/* ================================================================================================================================= */
+
+/* ================================================================== Hero Section ================================================ */
+
+/* =============================================================================================================================== */
+
 .hero{
-  min-height: 500px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 40px 20px;
+  border-bottom: 1px solid var(--primary-color-2);
 }
 
 .hero-content {
+  margin-top:15%;
   max-width: 700px;
 }
 
@@ -114,8 +155,16 @@ body {
   
 }
 
+/* ================================================================================================================================ */
+
+/* ================================================================== Product Section ================================================ */
+
+/* =============================================================================================================================== */
+
+
 .products-section{
   padding: 80px 60px;
+  border-bottom: px solid var(--primary-color-2);
 }
 .section-heading{
   text-align: center ;
@@ -126,7 +175,7 @@ body {
   margin-bottom: 10px;
 }
 .section-heading p{
-  color: #666;
+  color: var(--primary-color-2);
 }
 .product-grid {
   display: flex;
@@ -136,47 +185,179 @@ body {
 }
 .product-card{
   width: 250px;
-  border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  background: white;
+  background: #ffffffe1;
+  
+}
+.product-card:hover {
+ box-shadow: 0 8px 20px var(--box-shadow);
 }
 .product-card img {
+  margin-top:5%;
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 200px;
+ 
 }
 .product-info {
   padding: 20px;
 }
 .product-category {
   font-size: 14px;
-  color: #777;
+  color: var(--primary-color-3);
   margin-bottom: 8px;
 }
 
 .product-info h3{
   font-size: 20px;
   margin-bottom: 10px;
+  color: var(--primary-color-3);
 }
 
 .product-price {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 15px;
+  color: var(--primary-color-3);
 }
 
 .product-info button {
   width: 100%;
   padding: 12px;
-  border: none;
+  border: 1px solid var(--primary-color-1);
   border-radius: 6px;
-  background: #111;
-  color: white;
+  background:transparent;
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 .product-info button:hover{
-  opacity: 0.8;
+  background:#e49400 ;
+}
+
+
+/* ================================================================================================================================ */
+
+/* ================================================================== Responsive Navbar ================================================ */
+
+/* =============================================================================================================================== */
+
+
+.menu-button{
+  display:none;
+  font-size:15px;
+  padding:10px;
+  border:1px solid var(--primary-color-1);
+  background:#0a0a0a;
+  border-radius:5px;
+  transition: transform 0.3s ease;
+  
+}
+.menu-button:hover {
+  background-color: var(--hover-glow);
+  box-shadow: 0 8px 20px var(--box-shadow);
+  transform: scale(1.1);
+  cursor:pointer;
+}
+
+
+/* ================================================================================================================================ */
+
+/* ================================================================== Media Queries ================================================ */
+
+/* =============================================================================================================================== */
+
+@media (max-width : 768px) {
+
+  .navbar{
+    padding:20px;
+  }
+
+                                                            /* Responsive nav button */
+
+  .menu-button{
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 50%;
+
+    background-color: #111;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    padding: 30px 0;
+
+    /* Animation */
+    opacity: 0 ;
+    visibility: hidden;
+    transform: translateY(-20px);
+
+    transition: 0.3s ease;
+  }
+  .nav-links.active {
+    display:flex;
+    opacity: 1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+
+                                                   /* Responsive Hero Section */
+  
+.hero{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.hero-content {
+  margin-top:30%;
+  max-width: 700px;
+}
+
+.hero h1{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.hero button {
+  padding: 7px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+                                                  /* Responsive Product Section */ 
+
+
+.products-section{
+  padding: 60px 20px;
+}
+.section-heading h2 {
+  font-size: 30px;
+}
+.product-card{
+ width: 100%;
+ max-width: 350px;
+}
+}
+
+                                                                         /* Smaller screen */
+                                           /* Product session */
+@media (max-width : 550px) {
 }
 
 @media (prefers-color-scheme: dark) {

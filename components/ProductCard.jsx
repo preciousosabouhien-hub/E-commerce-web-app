@@ -1,7 +1,7 @@
 export default function ProductCard({ product }){
     return (
         <div className="product-card">
-        <img src={product} alt={product} />
+        <img src={product.image} alt={product.name} />
 
         <div className="product-info" >
             <p className="product-category">

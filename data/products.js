@@ -18,7 +18,7 @@ const products = [
     name: "Leather Handbag",
     price:  55000,
     category: "Fashion",
-    image: "/images/Sneakers.jpeg",
+    image: "/images/leather_bag.png",
 },
 {
     id:4,

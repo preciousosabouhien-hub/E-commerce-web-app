@@ -120,11 +120,17 @@ body {
   text-align: center;
   padding: 40px 20px;
   border-bottom: 1px solid var(--primary-color-2);
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../public/images/Sneakers.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   background-size: cover;
   background-position: center;
 }
 
+.hero-banner{
+  background:url(../public/images/sneakers.png);
+  background-size: cover;
+  background-position: center;
+  background-color:#fff;
+}
 .hero-content {
   margin-top:15%;
   max-width: 700px;
@@ -133,11 +139,13 @@ body {
 .hero h1{
   font-size: 52px;
   margin-bottom: 20px;
+  color:#fff;
 }
 
 .hero p {
   font-size: 20px;
   margin-bottom: 30px;
+  color:#fff;
 }
 
 .hero button {
@@ -149,13 +157,12 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration:none;
 }
 .hero button:hover {
   box-shadow: 0 8px 20px var(--box-shadow);
   transform:translateY(-3px) ;
   background:var(--primary-color-1);
-  border:none;
-  
 }
 
 /* ================================================================================================================================ */
@@ -252,7 +259,9 @@ body {
   border:1px solid var(--primary-color-1);
   background:#0a0a0a;
   border-radius:5px;
+  color:var(--background);
   transition: transform 0.3s ease;
+  text-decoration: none;
   
 }
 .menu-button:hover {

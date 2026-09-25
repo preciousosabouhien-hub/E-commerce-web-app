@@ -4,7 +4,7 @@ const products = [
     name: "Classic Sneakers",
     price:  4500,
     category: "Shoes",
-    image: "/images/Sneakers.jpeg",
+    image: "/images/sneakers.png",
 },
 {
     id:2,
@@ -25,32 +25,32 @@ const products = [
     name: "Wireless Headphones",
     price:  3000,
     category: "Electronics",
-    image: "/images/headset2.png",
+    image: "/images/headset.png",
 },
 {
     id:5,
     name: "Wireless Headphones",
     price:  75000,
     category: "Electronics",
-    image: "/images/Sneakers.jpeg",
+    image: "/images/headset.png",
 },{
     id:6,
     name: "Wireless Headphones",
     price:  75000,
     category: "Electronics",
-    image: "/images/Sneakers.jpeg",
+    image: "/images/headset.png",
 },{
     id:7,
     name: "Wireless Headphones",
     price:  75000,
     category: "Electronics",
-    image: "/images/Sneakers.jpeg",
+   image: "/images/headset.png",
 },{
     id:8,
     name: "Wireless Headphones",
     price:  75000,
     category: "Electronics",
-    image: "/images/Sneakers.jpeg",
+    image: "/images/headset.png",
 },
 ];
 

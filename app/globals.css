@@ -14,6 +14,7 @@
   --box-shadow: rgba(112, 109, 109, 0.603);
   --hover-glow: #fdaf1d;
   --text-shadow:rgba(255, 255, 255, 0.802);
+  --nav-font-color:#ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -120,16 +121,9 @@ body {
   text-align: center;
   padding: 40px 20px;
   border-bottom: 1px solid var(--primary-color-2);
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../public/images/Sneakers.jpeg);
   background-size: cover;
   background-position: center;
-}
-
-.hero-banner{
-  background:url(../public/images/sneakers.png);
-  background-size: cover;
-  background-position: center;
-  background-color:#fff;
 }
 .hero-content {
   margin-top:15%;
@@ -259,7 +253,7 @@ body {
   border:1px solid var(--primary-color-1);
   background:#0a0a0a;
   border-radius:5px;
-  color:var(--background);
+  color:var(--nav-font-color);
   transition: transform 0.3s ease;
   text-decoration: none;
   
@@ -272,6 +266,74 @@ body {
 }
 
 
+/* ================================================================================================================================ */
+
+/* ================================================================== Cart Page Styling ================================================ */
+
+/* =============================================================================================================================== */
+.cart-page {
+  min-height: 80vh;
+  padding: 60px;
+  background: #f8f8f8 ;
+}
+
+.cart-page h1 {
+  text-align: center ;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color:#0a0a0a;
+}
+
+.cart-page > p {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+.cart-page img{
+  width:200px;
+  height:auto;
+}
+
+/* Cart items container  */
+.cart-items {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Product image */
+.cart-item h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color:#0a0a0a;
+}
+
+.cart-item button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cart-item button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.cart-item p{
+color:#0a0a0a;
+}
+
+.quantity{
+  font-size:18px;
+  color:#0a0a0a;
+}
 /* ================================================================================================================================ */
 
 /* ================================================================== Media Queries ================================================ */
@@ -365,6 +427,30 @@ body {
  width: 100%;
  max-width: 350px;
 }
+
+                      /* ===========================================================================
+                        CART RESPONSIVE DESIGN
+                        ============================================================================ */
+.cart-page{
+  padding: 40px 20px; }
+
+.cart-page h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.cart-item{
+  flex-direction: column;
+  align-items: flex-start;
+}
+ .cart-item img {
+  width: 200px;
+  height: auto;
+ }
+ .cart-item h2{
+  font-size: 20px;
+ }
+
 }
 
                                                                          /* Smaller screen */

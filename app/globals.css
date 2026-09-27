@@ -423,6 +423,76 @@ color:#0a0a0a;
   background: #333;
   transform: translateY(-2px);
 }
+
+/* ======================================================= Check out system ======================================================*/
+.checkout-page{
+  min-height: 80vh;
+  padding: 60px;
+  background:  #dbdada;
+}
+.checkout-page h1 {
+  text-align: center ;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color:#0a0a0a;
+}
+.checkout-page h2 {
+  text-align: center ;
+  font-size: 20px;
+  margin-bottom: 40px;
+  color:#0a0a0a;
+
+}
+.checkout-form{
+  background-color: #fff;
+  padding:20px;
+  border-radius:10px;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.checkout-form-container{
+  padding:20px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.checkout-form label{
+ font-size:15px;
+ color:#000;
+ font-weight:700;
+}
+ .checkout-form input{
+  background:#fff;
+  padding:14px;
+  width:100%;
+  margin: 25px;
+  border-radius:10px;
+  border:1px solid #ccc;
+ }
+ .checkout-form textarea{
+   background:#fff;
+  padding:14px;
+  width:100%;
+  margin: 5%;
+  border-radius:10px;
+  border:1px solid #ccc;
+ }
+ .place-order-button{
+  color:#fff;
+  background:blue;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #fff;
+  cursor:pointer;
+ }
+ .checkout-total{
+  color:#000;
+ }
 /* ================================================================================================================================ */
 
 /* ================================================================== Media Queries ================================================ */

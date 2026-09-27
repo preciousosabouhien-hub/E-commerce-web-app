@@ -12,7 +12,7 @@
     <main className = "checkout-page" >
         <h1> Checkout</h1>
         <div className="checkout-form" >
-           <section className="checkout-form" >
+           <section className="checkout-form-container" >
             <h2>Customer Information </h2>
             <form>
                 <div className="form-group">

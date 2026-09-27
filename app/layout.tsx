@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Roboto } from 'next/font/google';
 import "./globals.css";
 import { CartProvider } from "../context/CartContext";
 
@@ -11,15 +11,20 @@ import { faShoppingCart} from '@fortawesome/free-solid-svg-icons' ;
 config.autoAddCss = false
 // Add individual icons to the library
 library.add( faShoppingCart)
+// Configure Montserrat for headings
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: ['400', '700'], // Add the weights you need
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// Configure Roboto for the body
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '500', '700'],
 });
 
 export const metadata: Metadata = {
@@ -29,8 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-    <body> <CartProvider> {children} </CartProvider></body>
+    <html lang="en" className={`${montserrat.variable} ${roboto.variable}`}>
+    <body className="font-body antialiased"> <CartProvider> {children} </CartProvider></body>
         </html>
   );
 }

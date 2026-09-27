@@ -36,8 +36,8 @@
                                                                     <div className="summary-row" ><span> Subtotal </span>
                                                                     <strong>${subtotal.toLocaleString()}</strong>
                                                                         </div>
-                                                                        <a href="/checkout" className="checkout-button">
-                                                                            Proceed to Checkout</a>
+                                                                        <link href="/checkout" className="checkout-button">
+                                                                            Proceed to Checkout</link>
                                                                             </div></>
                                                                              )
                                                                                             }

@@ -1,12 +1,33 @@
 
 "use client" ;
 
-import { createContext, useContext, useState } from "react" ;
+import { createContext, useContext, useState, useEffect } from "react" ;
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
 
     const [cart, setCart] = useState([]) ;
+    const [isCartLoaded, setIsCartLoaded] = useState(false);
+
+    useEffect(() => {
+        try{
+            const savedCart = localStorage.getItem("cart");
+
+            if (savedCart){
+                 setCart(JSON.parse(savedCart));
+            }
+        } catch (error) {
+            console.error("Failed to load cart:", error);
+        } finally {
+            setIsCartLoaded(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (isCartLoaded){
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+    }, [cart, isCartLoaded]);
 
     const increaseQuantity = (productId) => {
         setCart((currentCart) => 

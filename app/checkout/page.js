@@ -2,6 +2,7 @@
  
  
  import { useState } from "react";
+ import Link from "next/link";
  import { useCart } from "../../context/CartContext";
 
  export default function CheckoutPage() {
@@ -24,6 +25,7 @@
     };
     
     const [orderPlaced, setOrderPlaced] = useState(false);
+    const [confirmedOrder, setConfirmedOrder] = useState(null);
 
     const subtotal = cart.reduce(
         (total, item) => total + item.price * item.quantity, 0
@@ -33,35 +35,80 @@
         event.preventDefault();
 
         if (
-            !formData.name ||
-            !formData.email ||
-            !formData.phone ||
-            !formData.address  
+            !formData.name.trim() ||
+            !formData.email.trim() ||
+            !formData.phone.trim() ||
+            !formData.address.trim()  
         ){
             alert("Please fill in all fields. ");
             return;
         }
+        if (cart.length === 0){
+        alert("Your cart is empty. Please add products before checking out.");
+        return;
+        }
 
-        alert("Order placed successfully!");
+        const order = {
+            orderNumber: `SE-${Date.now()}`,
+            customer: { ...formData },
+            items: cart.map((item) => ({ ...item })),
+            total: subtotal,
+            date: new Date().toLocaleString(),
+        };
 
-        console.log("Customer Information:", formData);
-        console.log("Order:", cart);
+    
 
-        clearCart();
+
+
+        setConfirmedOrder(order);
         setOrderPlaced(true);
+        clearCart();
+      
     };
 
 
   return (
     <main className = "checkout-page" >
         <h1> Checkout</h1>
-        {orderPlaced ? (
+        {orderPlaced && confirmedOrder ? (
             <div className="order-success">
-                <h2> Order Placed Successfully!</h2>
-                <p>Thank you for shopping with ShopEase.
-                    </p>
-                 <a href="/" className="continue-shopping">
-                 continue shopping </a>
+
+                            <div className="success-icon">✅</div>
+
+                                <h2> Order Placed Successfully!</h2>
+
+                                <p>Thank you for shopping with ShopEase,{" "}
+                                    {confirmedOrder.customer.name}!</p>
+
+                                <div className="order-confirmation-details">
+                                  <p>
+                                    <strong>Order Number</strong>{" "}
+                                    {confirmedOrder.orderNumber}
+                                    </p>
+
+                                <p> <strong>Order Date</strong>{" "} 
+                                {confirmedOrder.date}
+                                </p>
+
+                                <h3>Order Summary</h3>
+
+                                {confirmedOrder.items.map((item) => (
+
+                                <div className="confirmation-item" key={item.id}>
+                                    
+                                <span>{item.name} x {item.quantity}</span>
+                            
+                                <strong>₦{(item.price * item.quantity).toLocaleString()}</strong>
+                            
+                                </div>
+                                    ))}
+                            <div className="confirmation-total">
+                            <span>Total</span>
+                            <strong>₦{confirmedOrder.total.toLocaleString()}</strong>
+                        </div>
+                       </div>
+                 <Link href="/" className="continue-shopping">
+                 continue shopping </Link>
                  </div>
         ) : (
                
@@ -74,27 +121,26 @@
                         Full name
                         </label>
                         <input type="text"  id="name"  name="name" placeholder="Enter your full name" value={formData.name} 
-                        onChange={handleChange} />
+                        onChange={handleChange} required/>
                         </div>
                         <div className="form-group" >
                             <label htmlFor="email">
                                 Email Address
                                 </label>
-                                <input type="email" id="email" name="email"  placeholder="Enter your Email" value={formData.email} onChange={handleChange}/></div>
+                                <input type="email" id="email" name="email"  placeholder="Enter your Email" value={formData.email} onChange={handleChange} required/></div>
                                    <div className="form-group" >
                             <label htmlFor="phone">
                                 Phone Number
                                 </label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value={formData.phone} onChange={handleChange}/></div>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value={formData.phone} onChange={handleChange} required/></div>
                         <div className="form-group" >
                             <label htmlFor="address" >
                                 Delivery Address </label>
-                                <textarea id="address" name="address" placeholder="Enter your delivery address" rows="4" value={formData.address} onChange={handleChange}></textarea>
-                                </div><button type="submit" className="place-order-button">
-                                                Place order</button></form></section>
+                                <textarea id="address" name="address" placeholder="Enter your delivery address" rows="4" value={formData.address} onChange={handleChange} required></textarea>
+                                </div><button type="submit" className="place-order-button" disabled={cart.length === 0}>
+                                                Place order</button>   </form></section>
                             <section className="checkout-summary" >
-                            <h2>Order Summary</h2>
-                            {cart.length === 0 ?( <p className="empty-cart-text">Your Cart is empty.</p> ) :( cart.map((item) => (
+                            <h2>Order Summary</h2>   {cart.length === 0 ?( <p className="empty-cart-text">Your Cart is empty.</p> ) :( cart.map((item) => (
                                 <div className="checkout-item" key={item.id}>
                                     <div><h3> {item.name}</h3>
                                     <p>{item.quantity} x ₦{item.price.toLocaleString()}</p>
@@ -116,4 +162,4 @@
                                     
                             );
 
-}
+                        }

@@ -1,5 +1,7 @@
 "use client";
- import { useCart } from "../../context/CartContext";
+
+import Link from "next/link" ;
+import { useCart } from "../../context/CartContext";
 
  export default function CartPage()
  {
@@ -36,8 +38,8 @@
                                                                     <div className="summary-row" ><span> Subtotal </span>
                                                                     <strong>${subtotal.toLocaleString()}</strong>
                                                                         </div>
-                                                                        <a href="/checkout" className="checkout-button">
-                                                                            Proceed to Checkout</a>
+                                                                        <Link href="/checkout" className="checkout-button">
+                                                                            Proceed to Checkout</Link>
                                                                             </div></>
                                                                              )
                                                                                             }

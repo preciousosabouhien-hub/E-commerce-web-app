@@ -17,7 +17,7 @@ export default function ProductCard({ product }){
 
                 <h3>{product.name}</h3>
                 <p className="product-price">
-                 ${product.price.toLocaleString()}
+                 ₦{product.price.toLocaleString()}
                 </p>
 
                 <button onClick={() => addToCart( product )}> Add to Cart </button>

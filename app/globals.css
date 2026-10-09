@@ -430,7 +430,7 @@ color:#0a0a0a;
 .checkout-page{
   min-height: 100vh;
   padding: 60px 8%;
-  background: #f8f9fa;
+  background: #aeb2b6;
 }
 
 .checkout-page h1{
@@ -541,6 +541,130 @@ color:#0a0a0a;
 .checkout-total strong{
   font-size: 23px;
   color: #111;
+}
+
+/* ================================================================== Order Success ================================================ */
+.order-success{
+ color:#0a0a0a;
+ background:#e0dfdf;
+ padding:15px;
+ border-radius:10px;
+}
+
+.success-icon {
+
+  width: 65px;
+
+  height: 65px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 0 auto 20px;
+
+  border-radius: 50%;
+
+  background: #c5e3cd;
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+}
+
+.order-confirmation-details {
+
+  margin: 30px 0;
+
+  padding: 25px;
+
+  background: #f8fafbcf;
+
+  border-radius: 10px;
+
+  text-align: left;
+  color:#0a0a0a;
+
+}
+
+.order-confirmation-details > p {
+
+  margin-bottom: 12px;
+
+  overflow-wrap: anywhere;
+
+  color:#0a0a0a;
+
+}
+
+.order-confirmation-details h3 {
+
+  margin: 25px 0 15px;
+  color:#0a0a0a;
+
+}
+
+.confirmation-item,
+
+.confirmation-total {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid #ddd;
+  color:#0a0a0a;
+
+}
+
+.confirmation-item strong {
+
+  white-space: nowrap;
+  color:#0a0a0a;
+
+}
+
+.confirmation-total {
+
+  margin-top: 10px;
+
+  padding-top: 20px;
+
+  border-bottom: none;
+
+  font-size: 18px;
+
+  font-weight: bold;
+  color:#0a0a0a;
+
+}
+
+.confirmation-total strong {
+
+  font-size: 22px;
+  color:#0a0a0a;
+
+}
+.continue-shopping{
+  background: #05a939e3;
+  color:#fff;
+  text-decoration: none;
+  padding:12px;
+  border-radius:10px;
+}
+.continue-shopping:hover{
+   background:#02a535;
+   transition: 0.5s ease;
+   transform: translateY(-4px);
 }
 /* ================================================================================================================================ */
 
@@ -675,12 +799,28 @@ color:#0a0a0a;
 .checkout-form-container, .checkout-summary {
   padding: 22px;
 }
+
+.order-confirmation-details {
+
+    padding: 16px;
+
+  }
+  order-confirmation-details h2, h3, strong, p {
+    font-size:13px;
+  }
+
+  .confirmation-item {
+
+    font-size: 14px;
+
+  }
 }
 
                                                                          /* Smaller screen */
                                            /* Product session */
 @media (max-width : 550px) {
 }
+
 
 @media (prefers-color-scheme: dark) {
   html {

@@ -75,22 +75,22 @@
 
                             <div className="success-icon">✅</div>
 
-                                <h2> Order Placed Successfully!</h2>
+                                <h2 align="center"> Order Placed Successfully!</h2>
 
-                                <p>Thank you for shopping with ShopEase,{" "}
+                                <p align="center">Thank you for shopping with ShopEase,{" "}
                                     {confirmedOrder.customer.name}!</p>
 
                                 <div className="order-confirmation-details">
                                   <p>
-                                    <strong>Order Number</strong>{" "}
-                                    {confirmedOrder.orderNumber}
+                                    <strong>Order Number:</strong>{" "}
+                                    <strong>{confirmedOrder.orderNumber}</strong>
                                     </p>
 
-                                <p> <strong>Order Date</strong>{" "} 
+                                <p> <strong>Order Date:</strong>{" "} 
                                 {confirmedOrder.date}
                                 </p>
 
-                                <h3>Order Summary</h3>
+                                <h3 align="center">Order Summary</h3>
 
                                 {confirmedOrder.items.map((item) => (
 
@@ -108,7 +108,7 @@
                         </div>
                        </div>
                  <Link href="/" className="continue-shopping">
-                 continue shopping </Link>
+                 Continue shopping </Link>
                  </div>
         ) : (
                

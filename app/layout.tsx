@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Roboto } from 'next/font/google';
 import "./globals.css";
 import { CartProvider } from "../context/CartContext";
+import Navbar from "../components/Navbar";
 
 // font awesome installation
 import { config, library } from '@fortawesome/fontawesome-svg-core';
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${montserrat.variable} ${roboto.variable}`}>
-    <body className="font-body antialiased"> <CartProvider> {children} </CartProvider></body>
+    <body className="font-body antialiased"> <CartProvider> <Navbar />{children} </CartProvider></body>
         </html>
   );
 }

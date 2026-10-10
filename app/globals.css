@@ -238,7 +238,28 @@ body {
   background:#e49400 ;
 }
 
+.view-all-products {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
 
+.view-all-products a {
+  display: inline-block;
+  padding: 13px 28px;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s ease,
+              transform 0.3s ease;
+}
+
+.view-all-products a:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
 /* ================================================================================================================================ */
 
 /* ================================================================== Responsive Navbar ================================================ */
@@ -680,6 +701,7 @@ color:#0a0a0a;
 }
 
 .shop-heading{
+  margin-top:100px;
   text-align: center;
   margin-bottom: 35px;
 }

@@ -18,7 +18,7 @@ export default function Navbar(){
                 ShopEase</a></div>
                 <div className={`nav-links ${isMenuOpen ? "active" : "" } `}>
                     <Link href="/">Home</Link>
-                    <Link href="/">Products</Link>
+                    <Link href="/products">Products</Link>
                     <Link href="/cart"><FontAwesomeIcon icon={faCartShopping} />  Cart ({cartCount})</Link>
                    
                     </div>

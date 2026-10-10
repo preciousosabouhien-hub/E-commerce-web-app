@@ -2,14 +2,16 @@
 "use client";
 
 import { useCart } from "../context/CartContext";
+import { Link } from "react";
 
 
 export default function ProductCard({ product }){
     const { addToCart } = useCart();
     return (
         <div className="product-card">
-        <img src={product.image} alt={product.name} />
-
+             <a href={`/products/${product.id}`}> 
+      <img src={product.image} alt={product.name} />
+        </a>
         <div className="product-info" >
             <p className="product-category">
                 {product.category}

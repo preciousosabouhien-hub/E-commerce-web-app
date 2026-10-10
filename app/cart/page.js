@@ -18,8 +18,9 @@ import { useCart } from "../../context/CartContext";
                                             <div className="cart-items"> 
                                                     {cart.map((item) => (
                                                                     <div className="cart-item" key={item.id}>
+                                                                    <Link  href={`/products/${item.id}`}>    
                                                                     <img src={item.image} alt={item.name} />
-                                                                    
+                                                                    </Link>
                                                                     <div> <h2>{item.name}</h2>
                                                                     <p>  ₦{item.price.toLocaleString()} </p>
                                                                     <div className="quantity-controls"><button onClick={() => 
@@ -28,6 +29,7 @@ import { useCart } from "../../context/CartContext";
                                                                         </span>
                                                                     <button onClick={() => increaseQuantity(item.id)}> + </button></div>
                                                                     <button onClick={() => removeFromCart(item.id)} > Remove </button>
+                                                                         
                                                                     
                                                                         </div>
                                                                         </div>

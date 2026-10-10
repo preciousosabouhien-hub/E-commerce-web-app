@@ -21,7 +21,7 @@ import { useCart } from "../../context/CartContext";
                                                                     <img src={item.image} alt={item.name} />
                                                                     
                                                                     <div> <h2>{item.name}</h2>
-                                                                    <p> ${item.price.toLocaleString()} </p>
+                                                                    <p>  ₦{item.price.toLocaleString()} </p>
                                                                     <div className="quantity-controls"><button onClick={() => 
                                                                         decreaseQuantity(item.id)}> - </button> 
                                                                         <span>{item.quantity}x
@@ -36,7 +36,7 @@ import { useCart } from "../../context/CartContext";
                                                                          } </div>
                                                                 <div className="cart-summary"> <h2> Cart Summary </h2>
                                                                     <div className="summary-row" ><span> Subtotal </span>
-                                                                    <strong>${subtotal.toLocaleString()}</strong>
+                                                                    <strong> ₦{subtotal.toLocaleString()}</strong>
                                                                         </div>
                                                                         <Link href="/checkout" className="checkout-button">
                                                                             Proceed to Checkout</Link>

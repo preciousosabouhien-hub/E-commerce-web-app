@@ -20,7 +20,7 @@ export default function ProductCard({ product }){
                  ₦{product.price.toLocaleString()}
                 </p>
 
-                <button onClick={() => addToCart( product )}> Add to Cart </button>
+                <button className="add-to-cart-button" onClick={() => addToCart( product )}> Add to Cart </button>
                 </div>
                 </div>
     );

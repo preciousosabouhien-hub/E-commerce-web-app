@@ -225,7 +225,7 @@ body {
   color: var(--primary-color-3);
 }
 
-.product-info button {
+.add-to-cart-button {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--primary-color-1);
@@ -234,7 +234,7 @@ body {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
-.product-info button:hover{
+.add-to-cart-button:hover{
   background:#e49400 ;
 }
 
@@ -788,7 +788,8 @@ color:#0a0a0a;
 .product-details-page {
   min-height: 100vh;
   padding: 50px 8%;
-  background: #f8f9fa;
+  background: #9c9fa2;
+  color:#010603;
 }
 
 .back-to-shop {
@@ -848,7 +849,6 @@ color:#0a0a0a;
   line-height: 1.8;
 }
 
-.details-add-to-cart,
 .submit-review-button {
   padding: 14px 22px;
   border: none;
@@ -860,7 +860,7 @@ color:#0a0a0a;
   transition: background 0.3s ease;
 }
 
-.details-add-to-cart:hover,
+
 .submit-review-button:hover {
   background: #333;
 }
@@ -936,8 +936,10 @@ color:#0a0a0a;
 .review-form-group textarea {
   width: 100%;
   padding: 13px;
+  background: #d4d6d8;
   border: 1px solid #ccc;
   border-radius: 6px;
+  color:#010603;
   font: inherit;
 }
 
@@ -958,7 +960,22 @@ color:#0a0a0a;
   margin-bottom: 20px;
 }
 
+/* ================================================================== Product Average Rating ================================================ */
+ .product-average-rating{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #666;
+ }
 
+ .average-stars {
+  color: #e6a700;
+  font-size: 20px;
+  letter-spacing: 2px;
+ }
 /* ================================================================================================================================ */
 
 /* ================================================================== Media Queries ================================================ */

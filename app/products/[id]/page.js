@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import products from "../../../data/products";
@@ -15,11 +15,48 @@ export default function ProductDetailsPage() {
   );
 
   const [reviews, setReviews] = useState([]);
+  const averageRating = reviews.length > 0
+   ? ( 
+    reviews.reduce( 
+      (total, review) => total + review.rating, 0 ) / reviews.length ).toFixed(1) : "0.0";
+  const [ reviewsLoaded, setReviewsLoaded ] = useState(false);
   const [reviewForm, setReviewForm] = useState({
     name: "",
     rating: "5",
     comment: "",
   });
+  useEffect(() => {
+    if (!id) return;
+     
+    setReviewsLoaded(false);
+     try {
+      const savedReviews = localStorage.getItem(`reviews-${id}`);
+
+      if (savedReviews) {
+        setReviews(JSON.parse(savedReviews));
+      } else {
+        setReviews([]);
+      }
+     } catch (error){
+      console.error("Failed to load reviews:", error);
+      setReviews([]);
+     }
+     finally {
+      setReviewsLoaded(true);
+     }
+  }, [id]);
+  useEffect(() => {
+    if (!id || !reviewsLoaded) return;
+
+    try { 
+      localStorage.setItem(
+        `reviews-${id}`,
+        JSON.stringify(reviews)
+      );
+      } catch (error) {
+        console.error("Failed to save reviews:", error);
+    }
+  }, [reviews, reviewsLoaded, id]);
 
   if (!product) {
     return (
@@ -69,9 +106,6 @@ export default function ProductDetailsPage() {
 
   return (
     <main className="product-details-page">
-      <Link href="/products" className="back-to-shop">
-        ← Back to Shop
-      </Link>
 
       <section className="product-details">
         <div className="product-details-image">
@@ -84,6 +118,14 @@ export default function ProductDetailsPage() {
           </p>
 
           <h1>{product.name}</h1>
+          <div className="product-average-rating">
+          <span className="average-stars">
+            {reviews.length > 0 ? "★".repeat( Math.round(Number(averageRating))) : "☆☆☆☆☆"}
+            </span>
+            <span> {averageRating} / 5 ({reviews.length}{" "}
+              {reviews.length === 1 ? "review" : "reviews" })
+              </span>
+              </div>
 
           <p className="product-details-price">
             ₦{product.price.toLocaleString()}
@@ -96,18 +138,21 @@ export default function ProductDetailsPage() {
           </p>
 
           <button
-            className="details-add-to-cart"
+            className="add-to-cart-button"
             onClick={() => addToCart(product)}
           >
             Add to Cart
           </button>
         </div>
+           <Link href="/products" className="back-to-shop">
+        ← Back to Shop
+      </Link>
       </section>
 
       <section className="reviews-section">
         <h2>Customer Reviews & Feedback</h2>
-
-        {reviews.length === 0 ? (
+        {!reviewsLoaded ? (<p> Loading reviews...</p>) :
+        reviews.length === 0 ? (
           <p className="no-reviews">
             No reviews yet. Be the first to share your feedback!
           </p>
